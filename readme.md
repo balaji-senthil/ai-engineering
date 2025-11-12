@@ -27,3 +27,7 @@
    2. Test
    3. Agent Chat UI
    4. Observability
+
+### References:
+1. [Langchain](https://docs.langchain.com)
+2. [Sample pdfs](https://github.com/femstac/Sample-Pdf-invoices/tree/main)

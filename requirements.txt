@@ -1,0 +1,9 @@
+langchain==1.0.5
+langchain-google-genai==3.0.1
+langchain-openai==1.0.2
+langchain-postgres==0.0.16
+langgraph==1.0.2
+notebook==7.4.7
+pgvector==0.3.6
+pypdf==6.2.0
+python-dotenv==1.2.1
