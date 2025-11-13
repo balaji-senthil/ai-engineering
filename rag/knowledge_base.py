@@ -44,7 +44,6 @@ def load_all_docs(folder_path: str, max_workers: int = 8):
 
 embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
 
-all_docs = load_all_docs(folder_path)
 
 vector_store = PGVector(
     embeddings=embeddings,
@@ -52,4 +51,12 @@ vector_store = PGVector(
     connection=f"postgresql+psycopg://{os.environ['DB_USER']}:{os.environ['DB_PWD']}@localhost:5432/aieng",
 )
 
-vector_store.add_documents(all_docs)
+retriever = vector_store.as_retriever(
+    search_type="mmr",
+    search_kwargs={"k": 5, "lambda_mult": 0.5, "fetch_k": 20, "score_threshold": "0.8"},
+)
+
+
+if __name__ == "main":
+    all_docs = load_all_docs(folder_path)
+    vector_store.add_documents(all_docs)
