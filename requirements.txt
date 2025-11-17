@@ -8,3 +8,4 @@ notebook==7.4.7
 pgvector==0.3.6
 pypdf==6.2.0
 python-dotenv==1.2.1
+langgraph-cli[inmem]
